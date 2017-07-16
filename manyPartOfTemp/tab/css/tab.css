@@ -1,0 +1,61 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    padding: 100px;
+    background-color: #323232;
+    font-size: 12px;
+    font-family: Arial;
+}
+ul li{
+    list-style: none;
+}
+.tab{
+    width: 300px;
+}
+.tab .tabNav{
+    height: 30px;
+}
+.tab .tabNav li{
+    float: left;
+    margin-right: 5px;
+    background-color: #767676;
+    border-radius: 3px 3px 0 0;
+    list-style: none;
+
+}
+.tab .tabNav li a{
+    display: block; /* 点击真快区域都会触发*/
+    height : 30px;
+    padding: 0px 20px;
+    line-height: 30px;
+    color: #ffffff;
+    text-decoration: none;
+}
+.tab .tabNav .active{
+    background-color: #ffffff;
+}
+.tab .tabNav .active a{
+    color: #777777;
+}
+.tab .content-wrap{
+    background-color: #ffffff;
+    padding: 5px;
+    height: 200px;
+}
+.tab .content-wrap .content-item{
+    position: absolute;
+    height: 200px;
+    display: none;
+}
+.tab .content-wrap .content-item img{
+    display: block;
+    /*width: 100%;*/
+    /*height: 100%;*/
+    width: 290px;
+    height: 190px;
+}
+.tab .content-wrap .current{
+    display: block;
+}
