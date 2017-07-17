@@ -4,33 +4,32 @@
 (function($){
 
     $(document).ready(function(){
-        var $content = $("#content");
-        var $contentWrap = $content.find(":first");
-        var slides = $content.find("li");
-        var contentWidth = $content.width();
-        var contentHeight = $content.height();
-        console.log(contentWidth );
-        console.log(contentHeight );
-        $contentWrap.css({
-            width:(contentWidth * slides.length) + "px",
-            height:contentHeight + "px"
+        var swipe = Swipe($("#content"));
+        /* $(".button").click(function(){
+         swipe.scrollTo($("#content").width()*2,10000)
+         });*/
+        //获取数据
+        var getValue = function(className){
+            var $ele = $(""+className+"");
+            //走路的路线坐标
+            return {
+                height:$ele.height(),
+                top:$ele.position().top
+            }
+        }
+        //路的Y轴
+        var pathY = function(){
+            var data = getValue(".a_background_middle");
+            return data.top + data.height / 2;
+        };
+
+        var $boy = $("#boy");
+        var boyHeight = $boy.height();
+        $boy.css({
+            top:pathY() - boyHeight +25
         });
-        $.each(slides,function(index){
-            var slide = slides.eq(index);
-            slide.css({
-                width : contentWidth + "px",
-                height : contentHeight + "px"
-            });
-        });
-    $("button").click(function(){
-        $contentWrap.css({
-            "transition-timing-function":"linear",
-            "trans ition-duration" : "10000ms",
-            "transform" : translate3d({'-' + (contentWidth*2)+"px"})
-        });
+
 
     });
-
-    })
 
 })(jQuery);
