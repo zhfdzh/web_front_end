@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../vendor/bootstrap/css/bootstrap.css"/>
+    <title></title>
+    <style>
+
+        .styleClass1{
+            margin:10px;
+            color:red;
+        }
+        .styleClass2{
+            margin:20px;
+            color:blue;
+        }
+
+    </style>
+</head>
+<body >
+    <div ng-app="myApp">
+        <div ng-controller="firstController">
+
+            <div >
+                <custom-tags>E</custom-tags>
+                <div class="custom-tags">C</div>
+                <div custom-tags>A</div>
+                <!--directive : custom-tags -->
+            </div>
+
+            <script type="text/ng-template" id="customTags2">
+            <div>hello</div>
+            </script>
+
+            <div>
+                <custom-tags2></custom-tags2>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <div ng-controller="secondController">
+            <input type="text" ng-model="fDF.myName"/>
+            <div>{{5+5}}</div>
+            <div ng-bind="5+5"></div>
+            <div ng-bind-template="{{5+5}}"></div>
+            <!--初始化，相当于$scope.cityArr = ['上海，‘北京，’杭州']-->
+            <ul ng-init="cityArr = ['上海，‘北京，’杭州']">
+                <li ng-repeat="city in cityArr">
+                    当前索引index:{{$index}}：
+                    是否为头元素first:{{$first}};
+                    是否为非头非尾元素:{{$middle}};
+                    是否为为元素:{{$last}};
+                </li>
+
+            </ul>
+            //加载另一个页面,注意，字符串一定要加单引号！！！！！
+            <div ng-include="'other.html'"></div>
+
+            <div ng-click="changeStatus($event)"></div>
+
+            <div ng-style="{color:'red','margin-top':'50px'}"></div>
+            <div ng-style="defaultStyle"></div>
+
+            //如果condition为真，则名为className的class样式会添加上div
+            <div ng-class="{styleClass1:condition}"></div>
+            //ng-class-even和ng-class-odd用于ng-repeat时，偶数行和奇数行分别显示什么样式
+            <div ng-class-even="'styleClass1'" ng-repeat=""></div>
+
+            //status为真时候显示，ng-hide则是相反
+            <div ng-show="status"></div>
+            //与ng-show类似
+            <img ng-if="status" />
+
+            //根据状态显示什么
+            <ul ng-switch on="status">
+                <li ng-switch-when="true">ture</li>
+                <li ng-switch-when="false">false</li>
+            </ul>
+
+            //类似ng-bind延迟加载，等angular加载好才去加载
+            <img ng-src="{{src}}" />
+            <img ng-href="{{src}}" />
+
+        </div>
+    </div>
+    <script src="../../vendor/angular-1.3.0.js"></script>
+    <script src="app/injectDependence.js"></script>
+</body>
+</html>

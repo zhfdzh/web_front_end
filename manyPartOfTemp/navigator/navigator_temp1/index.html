@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>导航栏</title>
+    <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+     <div id="containner" ng-app="app">
+         <div id="navContent">                       <!--//backgroundClass==allMenuBox)成立时ng-class=navItemRedBackground,-->
+            <div id="allMenuBox" class="navItem" ng-class="{'navItemRedBackground':(backgroundClass=='allMenu')}">
+                <a href="#allMenu">
+                    <div class="menuIconBox"><img class="menuIcon" src="images/menuicon.png" alt=""/> </div>
+                    <label class="allMenu" for="">全部菜单</label>
+                </a>
+            </div>                                          <!--//backgroundClass==allMenuBox成立时ng-class = navItemRedBackground，否则为空-->
+             <div id="firstPageBox" class="navItem ." ng-class="{true:'navItemRedBackground',false:''}[backgroundClass=='firstPage']">
+                 <a href="#firstPage">首页</a>
+             </div>
+             <div id="gongLueBox" class="navItem" ng-class="{navItemRedBackground:(backgroundClass=='gongLue')}">
+                 <a href="#gongLue">网站攻略</a>
+             </div>
+             <div id="sheQuBox" class="navItem"ng-class="{true:'navItemRedBackground',false:''}[backgroundClass=='sheQu']">
+                 <a href="#sheQu" >互动社区</a>
+             </div>
+             <div id="searchBox" class="navItem">
+                 <input id="searchText" type="text"/>
+                 <div id="idsearchbtn"> </div>
+             </div>
+         </div>
+         <div id="content" ng-view="">
+
+         </div>
+     </div>
+     <script src="js/libs/angular.js"></script>
+     <script src="js/libs/angular-route.min.js"></script>
+     <script src="js/controllers/app.js"></script>
+     <script src="js/routes/appRoute.js"></script>
+</body>
+</html>

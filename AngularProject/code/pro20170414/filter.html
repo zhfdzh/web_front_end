@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div ng-app="filterModule">
+        <div ng-controller="filterController">
+            <p>{{12345678981|number}}</p>
+            <p>{{12345678981|number:4}}</p>
+            <p>{{12345678981|currency}}</p>
+
+            <!--<p>{{12345678981|currency:'rmb'}}</p>-->
+            <!--<p>{{today|date:'medium'}}</p>-->
+            <!--<p>{{today|date:'fullDate'}}</p>-->
+            <!--<p>{{today|date:'shortDate'}}</p>-->
+            <!--<p>{{today|date:'longDate'}}</p>-->
+            <!--<p>{{today|date:'shortTime'}}</p>-->
+            <!--<p>{{today|date:'mediumTime'}}</p>-->
+            <!--<p>{{today|date:'longDesc'}}</p>-->
+            <!--<p>{{today|date:'y'}}</p>-->
+            <!--<p>{{today|date:'yy'}}</p>-->
+            <!--<p>{{today|date:'yyyy'}}</p>-->
+            <!--<p>{{today|date:'M'}}</p>-->
+            <!--<p>{{today|date:'MM'}}</p>-->
+            <!--<p>{{today|date:'MMM'}}</p>-->
+            <!--<p>{{today|date:'MMMM'}}</p>-->
+            <!--<p>{{today|date:'d'}}</p>-->
+            <!--<p>{{today|date:'dd'}}</p>-->
+            <!--<p>{{today|date:'EEE'}}</p>-->
+            <!--<p>{{today|date:'EEEE'}}</p>-->
+            <!--<p>{{today|date:'H'}}</p>-->
+            <!--<p>{{today|date:'m'}}</p>-->
+            <!--<p>{{today|date:'ss'}}</p>-->
+            <!--<p>{{today|date:'y-M-d H:m:s'}}</p>-->
+
+            <p>{{[1,2,3,4,5,6,7,8,9]|limitTo:5}}</p>
+            <p>{{data.share|lowercase}}</p>
+            <p>{{data.share|uppercase}}</p>
+            <!--注意只能匹配值，不能匹配键-->
+            <!--<p>{{data.city|filter:'hefei'}}</p>-->
+            <!--<p>{{data.city|filter:{pity:'e'} }}</p>-->
+            <p>{{data.city|filter:checkName }}</p>
+            <!--排序，默认正序，逆序加“-”号-->
+            <!--<p>{{data.city|orderBy:"pity" }}</p>-->
+            <!--<p>{{data.city|orderBy:"-pity" }}</p>-->
+
+
+        </div>
+        <script src="../../vendor/angular-1.3.0.js"></script>
+        <script src="app/filter.js"></script>
+    </div>
+</body>
+</html>
